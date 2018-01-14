@@ -23,8 +23,9 @@ namespace SherlockAndCost
             {
                 S[0] = Math.Max(oS[0] + Math.Abs(B[i] - B[i - 1]), oS[1] + Math.Abs(B[i] - 1));
                 S[1] = Math.Max(oS[0] + Math.Abs(B[i - 1] - 1), oS[1]);
-                oS[0] = S[0];
-                oS[1] = S[1];
+                //Console.WriteLine("idx {0} : max({1} + abs({2} - {3}), {4} + abs({5} - 1)) = {6}", i, oS[0], B[i], B[i - 1], oS[1], B[i], S[0]);
+                //Console.WriteLine("idx {0} : max({1} + abs({2} - 1), {3} = {4}", i, oS[0], B[i - 1], oS[1], S[1]);
+                Array.Copy(S, oS, 2);
             }
             return Math.Max(S[0], S[1]);
         }
